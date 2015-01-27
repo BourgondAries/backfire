@@ -141,6 +141,7 @@ node_t * node_init ( nodetype_t type,
 		va_list child_list )
 {
     node_t *init = (node_t *) malloc(sizeof(node_t));
+	//printf("safe for now\n");
     init->nodetype = type;
     init->label = label;
     init->data_type.base_type = base_type;
@@ -150,10 +151,14 @@ node_t * node_init ( nodetype_t type,
 
 	/* va_list child_list;*/
     /* va_start(child_list, n_children); */
+	// printf("just before loop\n");
     for ( int x = 0; x < n_children; x++ )        
     {
-        init->children[x] = va_arg(child_list, node_t *); 
+		node_t *child = va_arg(child_list, node_t *);
+		// printf("pointer of child: %x\n", child);
+        init->children[x] = child;
     }
+	// printf("just after loop\n");
     /* va_end (child_list);  */
 }
 

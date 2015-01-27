@@ -29,11 +29,13 @@ extern int yylineno;
  
 node_t* CN(nodetype_t type, int n_children, ...){
 	outputStage = 2;
-	if( outputStage == 2 ) printf( "Hit rule \"%s\" on text '%s' at line %d\n", type.text , yytext, yylineno );
+	if( outputStage == 2 ) printf( "Hit rule \"%d\" on text '%s' at line %d\n", type.index , yytext, yylineno );
 	va_list child_list;
 	va_start(child_list, n_children);
+	printf("\nNumber of children put in: %d\n", n_children);
 	node_t* to_return = node_init(type, NULL, NO_TYPE, default_e, n_children, child_list);
 	va_end(child_list);
+	printf("ENDED CN\n");
 	return to_return;
 }
 
@@ -56,7 +58,10 @@ node_t* CNT(nodetype_t type, base_data_type_t base_type, int n_children, ...){
 }
 
 node_t* CNE(nodetype_t type, expression_type_t expression_type, int n_children, ...){
+	outputStage = 2;
+	printf("inside CNE\n");
 	if( outputStage == 2 ) printf( "Hit rule \"%s\" on text '%s' at line %d\n", type.text , yytext, yylineno );
+	printf("after the fact\n");
 	va_list child_list;
 	va_start(child_list, n_children);
 	node_t* to_return = node_init(type, NULL, NO_TYPE, expression_type, n_children, child_list);
@@ -68,6 +73,7 @@ expression_type_t getExpressionType(et_number index)
 {
 	expression_type_t expr_type;
 	expr_type.index = index;
+	expr_type.text = NULL;
 	return expr_type;
 }
 
@@ -75,6 +81,7 @@ nodetype_t getNodeType(nt_number index)
 {
 	nodetype_t nodetype;
 	nodetype.index = index;
+	nodetype.text = NULL;
 	return nodetype;
 }
 
@@ -170,12 +177,12 @@ program :
 ;
 
 function : 
-	type FUNC variable LPAREN parameter_list RPAREN START statement_list END		{ $$ = CN(getNodeType(FUNCTION), 4, $1, $3, $5, $8); } 
+	type FUNC variable LPAREN parameter_list RPAREN START statement_list END		{ printf("ok"); $$ = CN(getNodeType(FUNCTION), 4, $1, $3, $5, $8); } 
 ;
 
 function_list :
-	function_list function		{ $$ = CN(getNodeType(FUNCTION_LIST), 2, $1, $2); }
-	|							{ $$ = CN(getNodeType(FUNCTION_LIST), 0); }
+	function_list function		{ printf("ok"); $$ = CN(getNodeType(FUNCTION_LIST), 2, $1, $2); }
+	|							{ printf("ok"); $$ = CN(getNodeType(FUNCTION_LIST), 0); }
 ;
 
 statement_list :
@@ -219,7 +226,7 @@ declaration_statement :
 ;
 
 assignment_statement :
-	lvalue ASSIGN expression		{ $$ = CN(getNodeType(ASSIGNMENT_STATEMENT), 2, $1, $3); }
+	lvalue ASSIGN expression		{ printf("just before assignment statement\n"); $$ = CN(getNodeType(ASSIGNMENT_STATEMENT), 2, $1, $3); printf("after assignment statement\n"); }
 ;
 
 if_statement :
@@ -243,7 +250,7 @@ print_statement :
 ;
 
 expression :
-	constant							{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(CONSTANT_E), 1, $1); }
+	constant							{ printf("constant encounter %x\n", $1); $$ = CNE(getNodeType(EXPRESSION), getExpressionType(CONSTANT_E), 1, $1); }
 	| expression PLUS expression		{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(ADD_E), 2, $1, $3); }
 	| expression MINUS expression		{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(SUB_E), 2, $1, $3); }	
 	| expression MUL expression			{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(MUL_E), 2, $1, $3); }	
@@ -268,14 +275,14 @@ call :
 ;
 
 lvalue :
-	variable			{ $$ = CN(getNodeType(VARIABLE), 1, $1); }
+	variable			{ printf("lvalue, variable\n"); $$ = CN(getNodeType(VARIABLE), 1, $1); }
 	| expression LBRACK expression RBRACK		{ $$ = CN(getNodeType(VARIABLE), 2, $1, $3); }
 ;
 
 constant :
 	TRUE_CONST			{ $$ = CN(getNodeType(CONSTANT), 1, $1); }
 	| FALSE_CONST			{ $$ = CN(getNodeType(CONSTANT), 1, $1); }
-	| INT_CONST			{ $$ = CN(getNodeType(CONSTANT), 1, $1); }
+	| INT_CONST			{ printf("integer constant\n"); $$ = CN(getNodeType(CONSTANT), 1, $1); }
 	| FLOAT_CONST			{ $$ = CN(getNodeType(CONSTANT), 1, $1); }
 	| STRING_CONST			{ $$ = CN(getNodeType(CONSTANT), 1, $1); }
 ;
@@ -284,7 +291,7 @@ type :
 	INT			{ $$ = CN(getNodeType(TYPE), 1, $1); }
 	| FLOAT			{ $$ = CN(getNodeType(TYPE), 1, $1); }
 	| BOOL			{ $$ = CN(getNodeType(TYPE), 1, $1); }
-	| VOID			{ $$ = CN(getNodeType(TYPE), 1, $1); }
+	| VOID			{ printf("\nHit void type\n"); $$ = CN(getNodeType(TYPE), 1, $1); }
 	| type ARRAY index_list			{ $$ = CN(getNodeType(TYPE), 2, $1, $3); }
 ;
 
@@ -298,7 +305,7 @@ index :
 ;
 
 variable :
-	IDENTIFIER		{ $$ = CN(getNodeType(VARIABLE), 1, $1); }
+	IDENTIFIER		{ printf("\nHit variable type %x\n", $1); $$ = CN(getNodeType(VARIABLE), 1, $1); printf("\nEND HIT VARIABLE\n"); }
 ;
 
 %% 

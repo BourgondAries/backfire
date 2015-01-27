@@ -122,7 +122,7 @@ comment		"//"
 "["					{ return LBRACK; }
 "]"					{ return RBRACK; }
 
-{identifier}		 { yylval = NULL; return IDENTIFIER; }
+{identifier}		 { yylval = (node_t *) malloc(sizeof(node_t)); SetString(yylval, yytext); return IDENTIFIER; }
 %%
 
 void scanUntilLinefeed()
