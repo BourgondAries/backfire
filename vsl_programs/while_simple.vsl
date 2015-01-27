@@ -1,0 +1,9 @@
+VOID FUNC main()
+START
+	INT a;
+	a := 10;
+	WHILE a > 0 DO
+		PRINT a;
+		a := a - 1;
+	END
+END

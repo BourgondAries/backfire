@@ -1,0 +1,51 @@
+VOID FUNC main()
+START
+	BOOL a;
+	BOOL b;
+	BOOL c;
+	
+	BOOL d;
+	BOOL e;
+	BOOL f;
+	
+	a := TRUE;
+	b := FALSE;
+	c := TRUE;
+	
+	d := a && b;
+	e := b && c;
+	f := c && a;
+	PRINT d, e, f;
+	
+	d := a || b;
+	e := b || c;
+	f := c || a;
+	PRINT d, e, f;
+	
+	d := !a;
+	e := !b;
+	f := !c;
+	PRINT d, e, f;
+	
+	d := a && !b;
+	e := b && !c;
+	f := c && !a;
+	PRINT d, e, f;
+	
+	d := !a || b;
+	e := !b || c;
+	f := !c || a;
+	PRINT d, e, f;
+	
+	d := a && b && c;
+	e := a || b || c;
+	f := a && b || c;
+	PRINT d, e, f;
+	
+	d := a || b && c;
+	e := (a || b) && c;
+	f := a || b && !c;
+	PRINT d, e, f;
+	
+	
+END

@@ -1,0 +1,12 @@
+VOID FUNC arrayTest() START
+	INT a;
+	INT b;
+	a := 66;
+	b := 44;
+	INT ARRAY [2] array;
+	array := NEW INT ARRAY[2];
+	array[0] := a;
+	array[1] := b;
+	
+	PRINT array[0], array[1];
+END

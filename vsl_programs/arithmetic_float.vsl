@@ -1,0 +1,61 @@
+VOID FUNC main()
+START
+	FLOAT a;
+	FLOAT b;
+	FLOAT c;
+	FLOAT d;
+	FLOAT e;
+	FLOAT f;
+	
+	a := 53.333;
+	b := 203.42;
+	c := -83.71;
+	
+	d := -a;
+	e := -b;
+	f := -c;
+	PRINT d, e, f;
+	
+	d := a + b;
+	e := a + c;
+	f := b + c;
+	PRINT d, e, f;
+	
+	d := a - b;
+	e := a - c;
+	f := b - c;
+	PRINT d, e, f;
+	
+	d := a - -b;
+	e := a - -c;
+	f := b - -c;
+	PRINT d, e, f;
+	
+	d := a * b;
+	e := a * c;
+	f := b * c;
+	PRINT d, e, f;
+	
+	d := a / b;
+	e := a / c;
+	f := b / c;
+	PRINT d, e, f;
+	
+	d := a + b + c;
+	e := a - b - c;
+	PRINT d, e;
+	
+	d := a * b * c;
+	e := a / b / c;
+	PRINT d, e;
+	
+	d := a + b * c;
+	e := a * b + c;
+	f := a / b + c;
+	PRINT d, e, f;
+	
+	d := a + b / c;
+	e := a - b / c;
+	f := a / b - c;
+	PRINT d, e, f;
+END

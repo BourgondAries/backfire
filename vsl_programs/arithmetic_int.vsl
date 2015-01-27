@@ -1,0 +1,61 @@
+VOID FUNC main()
+START
+	INT a;
+	INT b;
+	INT c;
+	INT d;
+	INT e;
+	INT f;
+	
+	a := 543;
+	b := 23;
+	c := -432;
+	
+	d := -a;
+	e := -b;
+	f := -c;
+	PRINT d, e, f;
+	
+	d := a + b;
+	e := a + c;
+	f := b + c;
+	PRINT d, e, f;
+	
+	d := a - b;
+	e := a - c;
+	f := b - c;
+	PRINT d, e, f;
+	
+	d := a - -b;
+	e := a - -c;
+	f := b - -c;
+	PRINT d, e, f;
+	
+	d := a * b;
+	e := a * c;
+	f := b * c;
+	PRINT d, e, f;
+	
+	d := a / b;
+	e := a / c;
+	f := b / c;
+	PRINT d, e, f;
+	
+	d := a + b + c;
+	e := a - b - c;
+	PRINT d, e;
+	
+	d := a * b * c;
+	e := a / b / c;
+	PRINT d, e;
+	
+	d := a + b * c;
+	e := a * b + c;
+	f := a / b + c;
+	PRINT d, e, f;
+	
+	d := a + b / c;
+	e := a - b / c;
+	f := a / b - c;
+	PRINT d, e, f;
+END

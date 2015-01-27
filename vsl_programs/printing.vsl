@@ -1,0 +1,18 @@
+VOID FUNC main()
+START
+	INT a;
+	BOOL b;
+	BOOL c;
+	FLOAT d;
+	
+	a := -10;
+	b := FALSE;
+	c := TRUE;
+	d := -0.4;
+	
+	PRINT "True ", TRUE, c;
+	PRINT "+-10 " , 10, a;
+	PRINT "False ", FALSE, b;
+	PRINT "+-0.4 ", 0.4, d;
+
+END

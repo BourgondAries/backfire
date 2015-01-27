@@ -1,0 +1,74 @@
+VOID FUNC main()
+START
+    INT ARRAY[100] a;
+    a := NEW INT ARRAY[100];
+    
+    INT i;
+    FOR i := 0 TO 100 DO
+        a[i] := 100 - i;
+    END
+    
+    merge_sort(a, 0, 100);
+    
+    FOR i := 0 TO 100 DO
+        PRINT a[i];
+    END
+    
+END
+
+VOID FUNC merge_sort(INT ARRAY[100] a, INT start, INT end)
+START
+
+    IF end - start <= 1 THEN
+        RETURN 0;
+    ELSE
+        INT middle;
+        middle := start + (end - start)/2;
+        
+        merge_sort(a, start, middle);
+        merge_sort(a, middle, end);
+        
+        
+        
+        merge(a, start, middle, end);
+    END
+END
+
+VOID FUNC merge(INT ARRAY[100] a, INT start, INT middle, INT end)
+START
+    INT ARRAY[100] temp;
+    temp := NEW INT ARRAY[100];
+    
+    INT i;
+    INT j;
+    i := start;
+    j := middle;
+    
+    INT k;
+    FOR k := start TO end DO
+        
+        IF i >= middle THEN
+            temp[k] := a[j];
+            j := j + 1;
+        ELSE
+            IF j >= end THEN
+                temp[k] := a[i];
+                i := i + 1;
+            ELSE
+                IF a[j] < a[i] THEN
+                    temp[k] := a[j];
+                    j := j + 1;
+                ELSE
+                    temp[k] := a[i];
+                    i := i + 1;
+                END
+            END
+        END
+    END
+    
+    INT n;
+    FOR n := start TO end DO
+        a[n] := temp[n];
+    END
+
+END

@@ -1,0 +1,11 @@
+// Program to exercise all lexical entities.
+
+INT FUNC main() START          // FUNC, identifier (func. def.)
+
+    PRINT "Hello, world!";       // PRINT keyword, string literal
+	PRINT "";                    // Whitespace: line starts on a tab character
+    PRINT "Hello, \"world\"!";   // String literal with escaped double quotes
+    PRINT "//Comment";           // Comment inside string, and "string" in comment
+END
+
+// End of program , // another comment

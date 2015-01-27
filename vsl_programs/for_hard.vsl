@@ -1,0 +1,19 @@
+VOID FUNC main() START
+    INT i;
+    FOR i := 1 TO 5 DO
+    	INT j;
+    	FOR j := 1 TO i DO
+    		INT k;
+    		FOR k := 1 TO j DO
+    			print(i,j,k);
+    		END
+    	END
+    END
+END
+
+VOID FUNC print(INT a, INT b, INT c)
+START
+	FOR a := -1 TO 0 DO
+		PRINT b, c;
+	END
+END

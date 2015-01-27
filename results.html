@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Test Results</title>
+<style>
+iframe {
+		border-style:solid;
+		border-width:1px;
+	   }
+body {font-family:sans;}
+button {
+	background:none;
+	border:none;
+	}
+button:hover{
+	text-decoration:underline;
+	}
+</style>
+<script>
+myLoad = function(file, stage){
+document.getElementById('diffframe').src = ("testOutput/" + file + "." + stage + ".html")
+document.getElementById('inputframe').src = ("vsl_programs/" + file + ".vsl")
+}
+</script>
+</head>
+
+<body>
+<div style="width:15%;float:left;font-family:sans;">
+<h1>Test Report</h1>
+
+
+The output was incorrect for the following files.
+Click to see difference between your output and the correct output. <br>
+
+<button onClick=myLoad("adding","s1")>adding</button> <br>
+<button onClick=myLoad("adding","s2")>adding</button> <br>
+<button onClick=myLoad("adding","s3")>adding</button> <br>
+<button onClick=myLoad("arithmetic_float","s1")>arithmetic_float</button> <br>
+<button onClick=myLoad("arithmetic_float","s2")>arithmetic_float</button> <br>
+<button onClick=myLoad("arithmetic_float","s3")>arithmetic_float</button> <br>
+<button onClick=myLoad("arithmetic_int","s1")>arithmetic_int</button> <br>
+<button onClick=myLoad("arithmetic_int","s2")>arithmetic_int</button> <br>
+<button onClick=myLoad("arithmetic_int","s3")>arithmetic_int</button> <br>
+<button onClick=myLoad("array_alt_declaration","s1")>array_alt_declaration</button> <br>
+<button onClick=myLoad("array_alt_declaration","s2")>array_alt_declaration</button> <br>
+<button onClick=myLoad("array_alt_declaration","s3")>array_alt_declaration</button> <br>
+<button onClick=myLoad("array_forloop","s1")>array_forloop</button> <br>
+<button onClick=myLoad("array_forloop","s2")>array_forloop</button> <br>
+<button onClick=myLoad("array_forloop","s3")>array_forloop</button> <br>
+<button onClick=myLoad("array_hard","s1")>array_hard</button> <br>
+<button onClick=myLoad("array_hard","s2")>array_hard</button> <br>
+<button onClick=myLoad("array_hard","s3")>array_hard</button> <br>
+<button onClick=myLoad("array_simple","s1")>array_simple</button> <br>
+<button onClick=myLoad("array_simple","s2")>array_simple</button> <br>

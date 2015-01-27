@@ -1,0 +1,33 @@
+VOID FUNC main() START
+
+	INT ARRAY [3][3] a;
+	a := NEW INT ARRAY[3][3];
+	a[2][2] := 5;
+	PRINT a[2][2];
+	
+	INT ARRAY [4][4][4] b;
+	
+	b := NEW INT ARRAY [4][4][4];
+	
+	b[1][0][2] := 10;
+	
+	PRINT b[1][0][2];
+	
+	INT ARRAY [3] c;
+	
+	c := create();
+	
+	PRINT c[1];
+	
+END
+
+INT ARRAY[3] FUNC create() START
+	INT ARRAY [3] a;
+	a := NEW INT ARRAY [3];
+	
+	a[0] := 1;
+	a[1] := 2;
+	a[2] := 3;
+	
+	RETURN a;
+END

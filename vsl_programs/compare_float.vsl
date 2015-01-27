@@ -1,0 +1,47 @@
+VOID FUNC main()
+START
+	FLOAT a;
+	FLOAT b;
+	FLOAT c;
+	
+	BOOL d;
+	BOOL e;
+	BOOL f;
+	
+	a := 43.4;
+	b := -10.2;
+	c := 1000.0;
+	
+	d := a > b;
+	e := b > c;
+	f := c > a;
+	PRINT d, e, f;
+	
+	d := a < b;
+	e := b < c;
+	f := c < a;
+	PRINT d, e, f;
+	
+	a := 1000.0;
+	
+	d := a >= b;
+	e := b >= c;
+	f := c >= a;
+	PRINT d, e, f;
+	
+	d := a <= b;
+	e := b <= c;
+	f := c <= a;
+	PRINT d, e, f;
+	
+	d := a == b;
+	e := b == c;
+	f := c == a;
+	PRINT d, e, f;
+	
+	d := a != b;
+	e := b != c;
+	f := c != a;
+	PRINT d, e, f;
+	
+END

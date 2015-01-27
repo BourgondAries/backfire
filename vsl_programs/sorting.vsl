@@ -1,0 +1,35 @@
+VOID FUNC main()
+START
+	INT ARRAY[10] a;
+	INT ARRAY[10] b;
+	a := NEW INT ARRAY[10];
+	
+	INT i;
+	FOR i := 0 TO 10 DO
+		a[i] := 10 - i;
+	END
+	
+	b := sort(a);
+	
+	FOR i := 0 TO 10 DO
+		PRINT b[i];
+	END
+END
+
+INT ARRAY[10] FUNC sort(INT ARRAY[10] a)
+START
+	INT i;
+	INT j;
+	INT temp;
+	FOR i := 0 TO 10 DO
+		FOR j := i TO 10 DO
+			IF a[j] < a[i] THEN
+				temp := a[i];
+				a[i] := a[j];
+				a[j] := temp;
+			END
+		END
+	END
+	
+	RETURN a;
+END

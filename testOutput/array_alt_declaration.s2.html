@@ -1,0 +1,227 @@
+<html>
+<head>
+<title>Colorized Diff</title>
+</head>
+<style>
+.diffdiv  { border: solid 1px black;           }
+.comment  { color: gray;                       }
+.diff     { color: #8A2BE2;                    }
+.minus3   { color: blue;                       }
+.plus3    { color: maroon;                     }
+.at2      { color: lime;                       }
+.plus     { color: green; background: #E7E7E7; }
+.minus    { color: red;   background: #D7D7D7; }
+.only     { color: purple;                     }
+</style>
+<body>
+<pre>
+<span class="comment"><span class="minus3">--- correctOutput/array_alt_declaration.s2	2015-01-14 09:24:14.000000000 +0100</span>
+<span class="plus3">+++ testOutput/array_alt_declaration.s2	2015-01-24 15:55:19.097917000 +0100</span>
+<span class="at2">@@ -1,204 +0,0 @@</span>
+<span class="minus">-Hit rule "TYPE" on text 'VOID' at line 1</span>
+<span class="minus">-Hit rule "VARIABLE" on text 'main' at line 1</span>
+<span class="minus">-Hit rule "TYPE" on text 'INT' at line 2</span>
+<span class="minus">-Hit rule "INDEX" on text '5' at line 2</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 2</span>
+<span class="minus">-Hit rule "TYPE" on text 'ARRAY' at line 2</span>
+<span class="minus">-Hit rule "INDEX" on text '5' at line 2</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 2</span>
+<span class="minus">-Hit rule "TYPE" on text 'a' at line 2</span>
+<span class="minus">-Hit rule "VARIABLE" on text 'a' at line 2</span>
+<span class="minus">-Hit rule "DECLARATION_STATEMENT" on text 'a' at line 2</span>
+<span class="minus">-Hit rule "STATEMENT" on text ';' at line 2</span>
+<span class="minus">-Hit rule "STATEMENT_LIST" on text ';' at line 2</span>
+<span class="minus">-Hit rule "VARIABLE" on text 'a' at line 3</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ':=' at line 3</span>
+<span class="minus">-Hit rule "TYPE" on text 'INT' at line 3</span>
+<span class="minus">-Hit rule "INDEX" on text '5' at line 3</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 3</span>
+<span class="minus">-Hit rule "TYPE" on text 'ARRAY' at line 3</span>
+<span class="minus">-Hit rule "INDEX" on text '5' at line 3</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 3</span>
+<span class="minus">-Hit rule "TYPE" on text ';' at line 3</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ';' at line 3</span>
+<span class="minus">-Hit rule "ASSIGNMENT_STATEMENT" on text ';' at line 3</span>
+<span class="minus">-Hit rule "STATEMENT" on text ';' at line 3</span>
+<span class="minus">-Hit rule "STATEMENT_LIST" on text ';' at line 3</span>
+<span class="minus">-Hit rule "TYPE" on text 'INT' at line 5</span>
+<span class="minus">-Hit rule "INDEX" on text '4' at line 5</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 5</span>
+<span class="minus">-Hit rule "INDEX" on text '4' at line 5</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 5</span>
+<span class="minus">-Hit rule "TYPE" on text 'ARRAY' at line 5</span>
+<span class="minus">-Hit rule "INDEX" on text '5' at line 5</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 5</span>
+<span class="minus">-Hit rule "INDEX" on text '5' at line 5</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 5</span>
+<span class="minus">-Hit rule "TYPE" on text 'b' at line 5</span>
+<span class="minus">-Hit rule "VARIABLE" on text 'b' at line 5</span>
+<span class="minus">-Hit rule "DECLARATION_STATEMENT" on text 'b' at line 5</span>
+<span class="minus">-Hit rule "STATEMENT" on text ';' at line 5</span>
+<span class="minus">-Hit rule "STATEMENT_LIST" on text ';' at line 5</span>
+<span class="minus">-Hit rule "VARIABLE" on text 'b' at line 6</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ':=' at line 6</span>
+<span class="minus">-Hit rule "TYPE" on text 'INT' at line 6</span>
+<span class="minus">-Hit rule "INDEX" on text '4' at line 6</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 6</span>
+<span class="minus">-Hit rule "TYPE" on text 'ARRAY' at line 6</span>
+<span class="minus">-Hit rule "INDEX" on text '4' at line 6</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 6</span>
+<span class="minus">-Hit rule "INDEX" on text '5' at line 6</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 6</span>
+<span class="minus">-Hit rule "INDEX" on text '5' at line 6</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 6</span>
+<span class="minus">-Hit rule "TYPE" on text ';' at line 6</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ';' at line 6</span>
+<span class="minus">-Hit rule "ASSIGNMENT_STATEMENT" on text ';' at line 6</span>
+<span class="minus">-Hit rule "STATEMENT" on text ';' at line 6</span>
+<span class="minus">-Hit rule "STATEMENT_LIST" on text ';' at line 6</span>
+<span class="minus">-Hit rule "TYPE" on text 'BOOL' at line 8</span>
+<span class="minus">-Hit rule "INDEX" on text '1' at line 8</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 8</span>
+<span class="minus">-Hit rule "TYPE" on text 'ARRAY' at line 8</span>
+<span class="minus">-Hit rule "INDEX" on text '2' at line 8</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 8</span>
+<span class="minus">-Hit rule "TYPE" on text 'ARRAY' at line 8</span>
+<span class="minus">-Hit rule "INDEX" on text '3' at line 8</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 8</span>
+<span class="minus">-Hit rule "TYPE" on text 'c' at line 8</span>
+<span class="minus">-Hit rule "VARIABLE" on text 'c' at line 8</span>
+<span class="minus">-Hit rule "DECLARATION_STATEMENT" on text 'c' at line 8</span>
+<span class="minus">-Hit rule "STATEMENT" on text ';' at line 8</span>
+<span class="minus">-Hit rule "STATEMENT_LIST" on text ';' at line 8</span>
+<span class="minus">-Hit rule "VARIABLE" on text 'c' at line 9</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ':=' at line 9</span>
+<span class="minus">-Hit rule "TYPE" on text 'BOOL' at line 9</span>
+<span class="minus">-Hit rule "INDEX" on text '1' at line 9</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 9</span>
+<span class="minus">-Hit rule "INDEX" on text '2' at line 9</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 9</span>
+<span class="minus">-Hit rule "TYPE" on text 'ARRAY' at line 9</span>
+<span class="minus">-Hit rule "INDEX" on text '3' at line 9</span>
+<span class="minus">-Hit rule "INDEX_LIST" on text ']' at line 9</span>
+<span class="minus">-Hit rule "TYPE" on text ';' at line 9</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ';' at line 9</span>
+<span class="minus">-Hit rule "ASSIGNMENT_STATEMENT" on text ';' at line 9</span>
+<span class="minus">-Hit rule "STATEMENT" on text ';' at line 9</span>
+<span class="minus">-Hit rule "STATEMENT_LIST" on text ';' at line 9</span>
+<span class="minus">-Hit rule "VARIABLE" on text 'a' at line 11</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 11</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 11</span>
+<span class="minus">-Hit rule "CONSTANT" on text '1' at line 11</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '1' at line 11</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 11</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 11</span>
+<span class="minus">-Hit rule "CONSTANT" on text '2' at line 11</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '2' at line 11</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 11</span>
+<span class="minus">-Hit rule "CONSTANT" on text '4' at line 11</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '4' at line 11</span>
+<span class="minus">-Hit rule "ASSIGNMENT_STATEMENT" on text ';' at line 11</span>
+<span class="minus">-Hit rule "STATEMENT" on text ';' at line 11</span>
+<span class="minus">-Hit rule "STATEMENT_LIST" on text ';' at line 11</span>
+<span class="minus">-Hit rule "VARIABLE" on text 'b' at line 12</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 12</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 12</span>
+<span class="minus">-Hit rule "CONSTANT" on text '1' at line 12</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '1' at line 12</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 12</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 12</span>
+<span class="minus">-Hit rule "CONSTANT" on text '2' at line 12</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '2' at line 12</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 12</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 12</span>
+<span class="minus">-Hit rule "CONSTANT" on text '3' at line 12</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '3' at line 12</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 12</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 12</span>
+<span class="minus">-Hit rule "CONSTANT" on text '1' at line 12</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '1' at line 12</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 12</span>
+<span class="minus">-Hit rule "CONSTANT" on text '5' at line 12</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '5' at line 12</span>
+<span class="minus">-Hit rule "ASSIGNMENT_STATEMENT" on text ';' at line 12</span>
+<span class="minus">-Hit rule "STATEMENT" on text ';' at line 12</span>
+<span class="minus">-Hit rule "STATEMENT_LIST" on text ';' at line 12</span>
+<span class="minus">-Hit rule "VARIABLE" on text 'c' at line 13</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 13</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 13</span>
+<span class="minus">-Hit rule "CONSTANT" on text '0' at line 13</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '0' at line 13</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 13</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 13</span>
+<span class="minus">-Hit rule "CONSTANT" on text '0' at line 13</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '0' at line 13</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 13</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 13</span>
+<span class="minus">-Hit rule "CONSTANT" on text '0' at line 13</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '0' at line 13</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 13</span>
+<span class="minus">-Hit rule "CONSTANT" on text 'TRUE' at line 13</span>
+<span class="minus">-Hit rule "EXPRESSION" on text 'TRUE' at line 13</span>
+<span class="minus">-Hit rule "ASSIGNMENT_STATEMENT" on text ';' at line 13</span>
+<span class="minus">-Hit rule "STATEMENT" on text ';' at line 13</span>
+<span class="minus">-Hit rule "STATEMENT_LIST" on text ';' at line 13</span>
+<span class="minus">-Hit rule "VARIABLE" on text 'a' at line 15</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 15</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 15</span>
+<span class="minus">-Hit rule "CONSTANT" on text '1' at line 15</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '1' at line 15</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 15</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 15</span>
+<span class="minus">-Hit rule "CONSTANT" on text '2' at line 15</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '2' at line 15</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 15</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 15</span>
+<span class="minus">-Hit rule "EXPRESSION_LIST" on text ';' at line 15</span>
+<span class="minus">-Hit rule "PRINT_STATEMENT" on text ';' at line 15</span>
+<span class="minus">-Hit rule "STATEMENT" on text ';' at line 15</span>
+<span class="minus">-Hit rule "STATEMENT_LIST" on text ';' at line 15</span>
+<span class="minus">-Hit rule "VARIABLE" on text 'b' at line 16</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 16</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 16</span>
+<span class="minus">-Hit rule "CONSTANT" on text '1' at line 16</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '1' at line 16</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 16</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 16</span>
+<span class="minus">-Hit rule "CONSTANT" on text '2' at line 16</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '2' at line 16</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 16</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 16</span>
+<span class="minus">-Hit rule "CONSTANT" on text '3' at line 16</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '3' at line 16</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 16</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 16</span>
+<span class="minus">-Hit rule "CONSTANT" on text '1' at line 16</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '1' at line 16</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 16</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 16</span>
+<span class="minus">-Hit rule "EXPRESSION_LIST" on text ';' at line 16</span>
+<span class="minus">-Hit rule "PRINT_STATEMENT" on text ';' at line 16</span>
+<span class="minus">-Hit rule "STATEMENT" on text ';' at line 16</span>
+<span class="minus">-Hit rule "STATEMENT_LIST" on text ';' at line 16</span>
+<span class="minus">-Hit rule "VARIABLE" on text 'c' at line 17</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 17</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '[' at line 17</span>
+<span class="minus">-Hit rule "CONSTANT" on text '0' at line 17</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '0' at line 17</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 17</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 17</span>
+<span class="minus">-Hit rule "CONSTANT" on text '0' at line 17</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '0' at line 17</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 17</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 17</span>
+<span class="minus">-Hit rule "CONSTANT" on text '0' at line 17</span>
+<span class="minus">-Hit rule "EXPRESSION" on text '0' at line 17</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 17</span>
+<span class="minus">-Hit rule "EXPRESSION" on text ']' at line 17</span>
+<span class="minus">-Hit rule "EXPRESSION_LIST" on text ';' at line 17</span>
+<span class="minus">-Hit rule "PRINT_STATEMENT" on text ';' at line 17</span>
+<span class="minus">-Hit rule "STATEMENT" on text ';' at line 17</span>
+<span class="minus">-Hit rule "STATEMENT_LIST" on text ';' at line 17</span>
+<span class="minus">-Hit rule "FUNCTION" on text 'END' at line 18</span>
+<span class="minus">-Hit rule "FUNCTION_LIST" on text 'END' at line 18</span>
+<span class="minus">-Hit rule "PROGRAM" on text '' at line 19</span></span>
+</pre>
+</body>
+</html>

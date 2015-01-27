@@ -1,0 +1,18 @@
+VOID FUNC main() START
+	INT ARRAY [5] ARRAY [5] a;
+	a := NEW INT ARRAY[5] ARRAY[5];
+	
+	INT ARRAY [4][4] ARRAY [5][5] b;
+	b := NEW INT ARRAY [4] ARRAY [4][5][5];
+	
+	BOOL ARRAY [1] ARRAY [2] ARRAY [3] c;
+	c := NEW BOOL ARRAY [1][2] ARRAY [3];
+	
+	a[1][2] := 4;
+	b[1][2][3][1] := 5;
+	c[0][0][0] := TRUE;
+	
+	PRINT a[1][2];
+	PRINT b[1][2][3][1];
+	PRINT c[0][0][0];
+END

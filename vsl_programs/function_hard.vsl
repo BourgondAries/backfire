@@ -1,0 +1,47 @@
+VOID FUNC main()
+START
+	INT a;
+	INT b;
+	INT c;
+	
+	a := 10;
+	b := 10;
+	c := 10;
+	
+	PRINT func1(a, b, c);
+	
+END
+
+INT FUNC func1(INT a, INT b, INT c)
+START
+	PRINT a, b, c;
+	INT d;
+	d := 1;
+	IF a > 1 THEN
+		d := func2(a - 1, b, c);
+	END
+	RETURN d;
+END
+
+INT FUNC func2(INT a, INT b, INT c)
+START
+	PRINT a, b, c;
+	INT d;
+	d := 2;
+	IF b > 1 THEN
+		d := func3(a, b - 1, c);
+	END
+	RETURN d;
+
+END
+
+INT FUNC func3(INT a, INT b, INT c)
+START
+	PRINT a, b, c;
+	INT d;
+	d := 3;
+	IF c > 1 THEN
+		d := func1(a, b, c - 1);
+	END
+	RETURN d;
+END

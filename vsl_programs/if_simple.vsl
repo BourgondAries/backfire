@@ -1,0 +1,10 @@
+VOID FUNC main()
+START
+	IF TRUE THEN
+		PRINT "true";
+	END
+	
+	IF FALSE THEN
+		PRINT "false";
+	END
+END

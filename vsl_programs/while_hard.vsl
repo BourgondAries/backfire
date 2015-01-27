@@ -1,0 +1,22 @@
+VOID FUNC main()
+START
+	INT a;
+	a := 4;
+	WHILE a > 0 DO
+		INT b;
+		b := 4;
+		WHILE b > 0 DO
+			INT c;
+			c := -4;
+			WHILE c < 0 DO
+				PRINT a, b, c, a*b*c;
+				
+				c := c + 1;
+			END
+			
+			b := b - 1;
+		END
+		
+		a := a - 1;
+	END
+END

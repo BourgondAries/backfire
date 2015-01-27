@@ -1,0 +1,21 @@
+VOID FUNC main()
+START
+    INT ARRAY[10] a;
+    INT ARRAY[10][10] b;
+    BOOL ARRAY[10] c;
+    FLOAT ARRAY[10][10][10] d;
+    
+    a := NEW INT ARRAY[9];
+    a := NEW BOOL ARRAY[10];
+    
+    b := NEW INT ARRAY[100];
+    b := NEW BOOL ARRAY[10][10];
+    b := NEW INT ARRAY[10][9];
+    
+    c := NEW FLOAT ARRAY[10];
+    c := NEW BOOL ARRAY[10][10];
+    
+    d := NEW INT ARRAY[10][10][10];
+    d := NEW FLOAT ARRAY[10][10][10][10];
+    d := NEW FLOAT ARRAY[10][9][11];
+END

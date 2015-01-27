@@ -1,0 +1,37 @@
+
+// This program is a simple test of conditionals, including nesting
+
+INT FUNC while_test ()
+START
+    INT a; INT b;
+    a := 10;
+    b := -15;
+    IF a != 10 THEN
+        PRINT "A is different from 10";
+    END
+    IF a >= 10 THEN
+        IF b != -15 THEN
+            PRINT "B is different from -15";
+        ELSE
+            PRINT "B equals -15";
+        END
+    ELSE
+    	PRINT "This never happens...";
+    END
+    
+    IF a > 0 THEN
+    	IF b > 0 THEN
+    		PRINT "a >0, b > 0";
+    	ELSE
+    		PRINT "a > 0, b <= 0";
+    	END
+    ELSE
+    	IF b > 0 THEN
+    		PRINT "a <= 0, b > 0";
+    	ELSE
+    		PRINT "a <= 0, b <= 0";
+    	END
+    END
+    	
+    RETURN 0;
+END

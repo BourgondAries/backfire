@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Colorized Diff</title>
+</head>
+<style>
+.diffdiv  { border: solid 1px black;           }
+.comment  { color: gray;                       }
+.diff     { color: #8A2BE2;                    }
+.minus3   { color: blue;                       }
+.plus3    { color: maroon;                     }
+.at2      { color: lime;                       }
+.plus     { color: green; background: #E7E7E7; }
+.minus    { color: red;   background: #D7D7D7; }
+.only     { color: purple;                     }
+</style>
+<body>
+<pre>
+<span class="comment"><span class="minus3">--- correctOutput/array_simple.s3	2015-01-14 09:24:38.000000000 +0100</span>
+<span class="plus3">+++ testOutput/array_simple.s3	2015-01-24 15:55:22.845940000 +0100</span>
+<span class="at2">@@ -1,92 +1 @@</span>
+<span class="minus">- PROGRAM()()</span>
+<span class="minus">- FUNCTION_LIST()()</span>
+<span class="minus">-  (nil)</span>

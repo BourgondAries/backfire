@@ -1,0 +1,10 @@
+VOID FUNC main()
+START
+	PRINT "In main()";
+	function();
+END
+
+VOID FUNC function()
+START
+	PRINT "In function()";
+END

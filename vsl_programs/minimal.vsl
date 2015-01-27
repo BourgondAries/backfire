@@ -1,0 +1,4 @@
+INT FUNC minimal ()
+START
+	RETURN 0;
+END

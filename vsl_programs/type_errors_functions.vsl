@@ -1,0 +1,31 @@
+VOID FUNC main()
+START
+    INT a;
+    BOOL b;
+    
+    a := void_func();
+    
+    a := bool_func();
+    
+    two_args(a);
+    two_args(b,a);
+    two_args();
+    
+    void_func(a,b);
+END
+
+VOID FUNC void_func()
+START
+    RETURN 0;
+END
+
+BOOL FUNC bool_func()
+START
+    RETURN FALSE;
+END
+
+VOID FUNC two_args(BOOL a, INT b)
+START
+    RETURN 0;
+END
+

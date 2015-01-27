@@ -1,0 +1,29 @@
+Hit rule "TYPE" on text 'INT' at line 3
+Hit rule "VARIABLE" on text 'main' at line 3
+Hit rule "CONSTANT" on text '"Hello, world!"' at line 5
+Hit rule "EXPRESSION" on text '"Hello, world!"' at line 5
+Hit rule "EXPRESSION_LIST" on text ';' at line 5
+Hit rule "PRINT_STATEMENT" on text ';' at line 5
+Hit rule "STATEMENT" on text ';' at line 5
+Hit rule "STATEMENT_LIST" on text ';' at line 5
+Hit rule "CONSTANT" on text '""' at line 6
+Hit rule "EXPRESSION" on text '""' at line 6
+Hit rule "EXPRESSION_LIST" on text ';' at line 6
+Hit rule "PRINT_STATEMENT" on text ';' at line 6
+Hit rule "STATEMENT" on text ';' at line 6
+Hit rule "STATEMENT_LIST" on text ';' at line 6
+Hit rule "CONSTANT" on text '"Hello, \"world\"!"' at line 7
+Hit rule "EXPRESSION" on text '"Hello, \"world\"!"' at line 7
+Hit rule "EXPRESSION_LIST" on text ';' at line 7
+Hit rule "PRINT_STATEMENT" on text ';' at line 7
+Hit rule "STATEMENT" on text ';' at line 7
+Hit rule "STATEMENT_LIST" on text ';' at line 7
+Hit rule "CONSTANT" on text '"//Comment"' at line 8
+Hit rule "EXPRESSION" on text '"//Comment"' at line 8
+Hit rule "EXPRESSION_LIST" on text ';' at line 8
+Hit rule "PRINT_STATEMENT" on text ';' at line 8
+Hit rule "STATEMENT" on text ';' at line 8
+Hit rule "STATEMENT_LIST" on text ';' at line 8
+Hit rule "FUNCTION" on text 'END' at line 9
+Hit rule "FUNCTION_LIST" on text 'END' at line 9
+Hit rule "PROGRAM" on text '' at line 12

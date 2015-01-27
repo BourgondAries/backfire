@@ -1,0 +1,10 @@
+VOID FUNC main()
+START
+	INT a;
+	BOOL b;
+	FLOAT c;
+	
+	a := 10;
+	b := TRUE;
+	c := 0.1;
+END
