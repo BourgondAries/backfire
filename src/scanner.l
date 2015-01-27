@@ -68,7 +68,7 @@ comment		"//"
 %%
 
 {whitespace}		{}
-{comment}		{ scanUntilLinefeed(); }
+{comment}			{ scanUntilLinefeed(); }
 
 "FUNC"				{ return FUNC; }
 "PRINT"				{ return PRINT; }
@@ -109,7 +109,7 @@ comment		"//"
 "!"					{ return NOT; }
 "."					{ return DOT; }
 
-{denary_integer}	{ yylval = node_init(); SetInteger(yylval, yytext); return INT_CONST; }
+{denary_integer}	{ yylval = (node_t *) malloc(sizeof(node_t)); SetInteger(yylval, yytext); return INT_CONST; }
 {denary_float}		{ yylval = (node_t *) malloc(sizeof(node_t)); SetFloat(yylval, yytext); return FLOAT_CONST; }
 {bool_true}			{ yylval = (node_t *) malloc(sizeof(node_t)); SetInteger(yylval, yytext); return TRUE_CONST; }
 {bool_false}		{ yylval = (node_t *) malloc(sizeof(node_t)); SetInteger(yylval, yytext); return FALSE_CONST; }
@@ -122,7 +122,7 @@ comment		"//"
 "["					{ return LBRACK; }
 "]"					{ return RBRACK; }
 
-{identifier}		 { yylval =  return IDENTIFIER; }
+{identifier}		 { yylval = NULL; return IDENTIFIER; }
 %%
 
 void scanUntilLinefeed()
