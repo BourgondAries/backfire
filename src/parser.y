@@ -224,7 +224,7 @@ declaration_statement :
 ;
 
 assignment_statement :
-	lvalue ASSIGN expression		{ $$ = CN(getNodeType(ASSIGNMENT_STATEMENT, "EXPRESSION"), 2, $1, $3); }
+	lvalue ASSIGN expression		{ $$ = CN(getNodeType(ASSIGNMENT_STATEMENT, "ASSIGNMENT_STATEMENT"), 2, $1, $3); }
 ;
 
 if_statement :
