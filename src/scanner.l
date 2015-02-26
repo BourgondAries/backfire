@@ -95,20 +95,20 @@ comment		"//"
 "ARRAY"				{ RETURN(ARRAY); }
 
 ":="				{ RETURN(ASSIGN); }
-"+"					{ RETURN(PLUS); }
-"-"					{ RETURN(MINUS); }
-"*"					{ RETURN(MUL); }
-"/"					{ RETURN(DIV); }
-">"					{ RETURN(GREATER); }
-"<"					{ RETURN(LESS); }
+"+"					{ RETURN('+'); }
+"-"					{ RETURN('-'); }
+"*"					{ RETURN('*'); }
+"/"					{ RETURN('/'); }
+">"					{ RETURN('>'); }
+"<"					{ RETURN('<'); }
 "<="				{ RETURN(LEQUAL); }
 ">="				{ RETURN(GEQUAL); }
 "=="				{ RETURN(EQUAL); }
 "!="				{ RETURN(NEQUAL); }
 "&&"				{ RETURN(AND); }
 "||"				{ RETURN(OR); }
-"!"					{ RETURN(NOT); }
-"."					{ RETURN(DOT); }
+"!"					{ RETURN('!'); }
+"."					{ RETURN('.'); }
 
 {denary_integer}	{ yylval = (node_t *) malloc(sizeof(node_t)); SetInteger(yylval, yytext); RETURN(INT_CONST); }
 {denary_float}		{ yylval = (node_t *) malloc(sizeof(node_t)); SetFloat(yylval, yytext); RETURN(FLOAT_CONST); }
@@ -116,12 +116,12 @@ comment		"//"
 {bool_false}		{ yylval = (node_t *) malloc(sizeof(node_t)); SetInteger(yylval, yytext); RETURN(FALSE_CONST); }
 {string_literal}	{ yylval = (node_t *) malloc(sizeof(node_t)); SetString(yylval, yytext); RETURN(STRING_CONST); }
 
-")"					{ RETURN(RPAREN); }
-"("					{ RETURN(LPAREN); }
-","					{ RETURN(COMMA); }
-";"					{ RETURN(SEMICOLON); }
-"["					{ RETURN(LBRACK); }
-"]"					{ RETURN(RBRACK); }
+")"					{ RETURN('('); }
+"("					{ RETURN(')'); }
+","					{ RETURN(','); }
+";"					{ RETURN(';'); }
+"["					{ RETURN('['); }
+"]"					{ RETURN(']'); }
 
 {identifier}		 { yylval = (node_t *) malloc(sizeof(node_t)); SetString(yylval, yytext); RETURN(IDENTIFIER); }
 %%
