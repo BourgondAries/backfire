@@ -133,8 +133,7 @@ int yylex ( void );                 /* Defined in the generated scanner */
 %token  NEW
 %token ARRAY
 %token FOR TO
-%token CLASS_TOKEN HAS WITH THIS
-%token LPAREN RPAREN SEMICOLON COMMA
+%token '(' ')' ';' ','
 
 /*
  * Operator precedences: 
@@ -146,16 +145,16 @@ int yylex ( void );                 /* Defined in the generated scanner */
  * production: " '-' expression %prec UMINUS "
  */
 %nonassoc ARRAY
-%nonassoc RBRACK
+%nonassoc ']'
 
 %left OR
 %left AND
 %left EQUAL NEQUAL
-%left GEQUAL LEQUAL LESS GREATER
-%left PLUS MINUS
-%left MUL DIV
-%nonassoc UMINUS NOT
-%left LBRACK DOT
+%left GEQUAL LEQUAL '<' '>'
+%left '+' '-'
+%left '*' '/'
+%nonassoc UMINUS '!'
+%left '[' '.'
 
 /*
  * The grammar productions follow below. These are mostly a straightforward
