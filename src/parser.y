@@ -224,7 +224,7 @@ declaration_statement :
 ;
 
 assignment_statement :
-	lvalue ASSIGN expression		{ $$ = CN(getNodeType(ASSIGNMENT_STATEMENT, "ASSIGNMENT_STATEMENT"), 2, $1, $3); }
+	lvalue ASSIGN expression		{ $$ = CN(getNodeType(ASSIGNMENT_STATEMENT, "EXPRESSION"), 2, $1, $3); }
 ;
 
 if_statement :
@@ -248,7 +248,7 @@ print_statement :
 ;
 
 expression :
-	constant							{ /* printf("constant encounter %x\n", $1); */ $$ = CNE(getNodeType(EXPRESSION, "EXPRESSION"), getExpressionType(CONSTANT_E), 1, $1); }
+	constant							{ $$ = CNE(getNodeType(EXPRESSION, "EXPRESSION"), getExpressionType(CONSTANT_E), 1, $1); }
 	| expression '+' expression		{ $$ = CNE(getNodeType(EXPRESSION, "EXPRESSION"), getExpressionType(ADD_E), 2, $1, $3); }
 	| expression '-' expression		{ $$ = CNE(getNodeType(EXPRESSION, "EXPRESSION"), getExpressionType(SUB_E), 2, $1, $3); }	
 	| expression '*' expression			{ $$ = CNE(getNodeType(EXPRESSION, "EXPRESSION"), getExpressionType(MUL_E), 2, $1, $3); }	
@@ -273,7 +273,7 @@ call :
 ;
 
 lvalue :
-	variable			{ $$ = CN(getNodeType(VARIABLE, "VARIABLE"), 1, $1); }
+	variable			{ /*$$ = CN(getNodeType(VARIABLE, "VARIABLE"), 1, $1);*/ }
 	| expression '[' expression ']'		{ $$ = CN(getNodeType(VARIABLE, "VARIABLE"), 2, $1, $3); }
 ;
 
