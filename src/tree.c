@@ -159,7 +159,8 @@ node_t *node_init ( nodetype_t type,
 
 void node_finalize ( node_t *discard )
 {
-    // free(discard->children);
+	if (discard->n_children > 0)
+    	free(discard->children);
     free(discard);
 }
 
