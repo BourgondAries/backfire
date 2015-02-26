@@ -274,7 +274,7 @@ call :
 
 lvalue :
 	variable			{ $$ = CN(getNodeType(VARIABLE, "EXPRESSION"), 1, $1); }
-	| expression '[' expression ']'		{ $$ = CN(getNodeType(VARIABLE, "VARIABLE"), 2, $1, $3); }
+	| expression '[' expression ']'		{ $$ = CN(getNodeType(VARIABLE, "EXPRESSION"), 2, $1, $3); }
 ;
 
 constant :
