@@ -132,7 +132,7 @@ void node_print_entries ( FILE *output, node_t *root, int nesting )
         fprintf ( output, "%*c%p\n", nesting, ' ', root );
 }
 
-node_t * node_init ( nodetype_t type,
+node_t *node_init ( nodetype_t type,
 		char* label,
 		base_data_type_t base_type,
 		expression_type_t expression_type,
@@ -140,7 +140,6 @@ node_t * node_init ( nodetype_t type,
 		va_list child_list )
 {
     node_t *init = (node_t *) malloc(sizeof(node_t));
-	//printf("safe for now\n");
     init->nodetype = type;
     init->label = label;
     init->data_type.base_type = base_type;
@@ -148,17 +147,11 @@ node_t * node_init ( nodetype_t type,
     init->n_children = n_children;
     init->children = (node_t **) malloc(sizeof(node_t *) * n_children);
 
-	/* va_list child_list;*/
-    /* va_start(child_list, n_children); */
-	// printf("just before loop\n");
-    for ( int x = 0; x < n_children; x++ )        
+    for ( int x = 0; x < n_children; ++x )        
     {
 		node_t *child = va_arg(child_list, node_t *);
-		// printf("pointer of child: %x\n", child);
         init->children[x] = child;
     }
-	// printf("just after loop\n");
-    /* va_end (child_list);  */
 }
 
 
