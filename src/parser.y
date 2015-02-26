@@ -175,7 +175,7 @@ program :
 ;
 
 function : 
-	type FUNC variable LPAREN parameter_list RPAREN START statement_list END		{ /* printf("ok"); */ $$ = CN(getNodeType(FUNCTION), 4, $1, $3, $5, $8); } 
+	type FUNC variable '(' parameter_list ')' START statement_list END		{ /* printf("ok"); */ $$ = CN(getNodeType(FUNCTION), 4, $1, $3, $5, $8); } 
 ;
 
 function_list :
@@ -190,12 +190,12 @@ statement_list :
 
 variable_list :
 	declaration_statement		{ $$ = CN(getNodeType(VARIABLE_LIST), 1, $1); }
-	| variable_list COMMA declaration_statement		{ $$ = CN(getNodeType(VARIABLE_LIST), 2, $1, $3); }
+	| variable_list ',' declaration_statement		{ $$ = CN(getNodeType(VARIABLE_LIST), 2, $1, $3); }
 ;
 
 expression_list :
 	expression			{ $$ = CN(getNodeType(EXPRESSION_LIST), 1, $1); }
-	| expression_list COMMA expression	{ $$ = CN(getNodeType(EXPRESSION_LIST), 2, $1, $3); }
+	| expression_list ',' expression	{ $$ = CN(getNodeType(EXPRESSION_LIST), 2, $1, $3); }
 ;
 
 parameter_list :
@@ -209,14 +209,14 @@ argument_list :
 ;
 
 statement :
-	declaration_statement SEMICOLON		{ $$ = CN(getNodeType(STATEMENT), 1, $1); }
-	| assignment_statement SEMICOLON	{ $$ = CN(getNodeType(STATEMENT), 1, $1); }
+	declaration_statement ';'		{ $$ = CN(getNodeType(STATEMENT), 1, $1); }
+	| assignment_statement ';'	{ $$ = CN(getNodeType(STATEMENT), 1, $1); }
 	| if_statement		{ $$ = CN(getNodeType(STATEMENT), 1, $1); }
 	| while_statement		{ $$ = CN(getNodeType(STATEMENT), 1, $1); }
 	| for_statement		{ $$ = CN(getNodeType(STATEMENT), 1, $1); }
-	| print_statement SEMICOLON		{ $$ = CN(getNodeType(STATEMENT), 1, $1); }
-	| return_statement SEMICOLON		{ $$ = CN(getNodeType(STATEMENT), 1, $1); }
-	| call SEMICOLON		{ $$ = CN(getNodeType(STATEMENT), 1, $1); }
+	| print_statement ';'		{ $$ = CN(getNodeType(STATEMENT), 1, $1); }
+	| return_statement ';'		{ $$ = CN(getNodeType(STATEMENT), 1, $1); }
+	| call ';'		{ $$ = CN(getNodeType(STATEMENT), 1, $1); }
 ;
 
 declaration_statement :
@@ -249,32 +249,32 @@ print_statement :
 
 expression :
 	constant							{ /* printf("constant encounter %x\n", $1); */ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(CONSTANT_E), 1, $1); }
-	| expression PLUS expression		{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(ADD_E), 2, $1, $3); }
-	| expression MINUS expression		{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(SUB_E), 2, $1, $3); }	
-	| expression MUL expression			{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(MUL_E), 2, $1, $3); }	
-	| expression DIV expression			{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(DIV_E), 2, $1, $3); }
-	| expression GREATER expression			{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(GREATER_E), 2, $1, $3); }
-	| expression LESS expression			{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(LESS_E), 2, $1, $3); }
+	| expression '+' expression		{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(ADD_E), 2, $1, $3); }
+	| expression '-' expression		{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(SUB_E), 2, $1, $3); }	
+	| expression '*' expression			{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(MUL_E), 2, $1, $3); }	
+	| expression '/' expression			{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(DIV_E), 2, $1, $3); }
+	| expression '>' expression			{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(GREATER_E), 2, $1, $3); }
+	| expression '<' expression			{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(LESS_E), 2, $1, $3); }
 	| expression EQUAL expression			{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(EQUAL_E), 2, $1, $3); }
 	| expression NEQUAL expression			{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(NEQUAL_E), 2, $1, $3); }
 	| expression GEQUAL expression			{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(GEQUAL_E), 2, $1, $3); }
 	| expression LEQUAL expression			{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(LEQUAL_E), 2, $1, $3); }
 	| expression AND expression			{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(AND_E), 2, $1, $3); }
 	| expression OR expression			{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(OR_E), 2, $1, $3); }
-	| MINUS expression %prec UMINUS
+	| '-' expression %prec UMINUS
 	| NEW type							{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(NEW_E), 1, $2); }
-	| LPAREN expression RPAREN			{ $$= CNE(getNodeType(EXPRESSION), getExpressionType(DEFAULT_E), 1, $2); }
+	| '(' expression ')'			{ $$= CNE(getNodeType(EXPRESSION), getExpressionType(DEFAULT_E), 1, $2); }
 	| call								{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(FUNC_CALL_E), 1, $1); }
 	| lvalue							{ $$ = CNE(getNodeType(EXPRESSION), getExpressionType(VARIABLE_E), 1, $1); }
 ;
 
 call :
-	variable LPAREN argument_list RPAREN  { $$ = CNE(getNodeType(EXPRESSION), getExpressionType(FUNC_CALL_E), 2, $1, $3); }
+	variable '(' argument_list ')'  { $$ = CNE(getNodeType(EXPRESSION), getExpressionType(FUNC_CALL_E), 2, $1, $3); }
 ;
 
 lvalue :
 	variable			{ /* printf("lvalue, variable\n"); */ $$ = CN(getNodeType(VARIABLE), 1, $1); }
-	| expression LBRACK expression RBRACK		{ $$ = CN(getNodeType(VARIABLE), 2, $1, $3); }
+	| expression '[' expression ']'		{ $$ = CN(getNodeType(VARIABLE), 2, $1, $3); }
 ;
 
 constant :
@@ -294,8 +294,8 @@ type :
 ;
 
 index_list :
-	index_list LBRACK index RBRACK			{ $$ = CN(getNodeType(INDEX_LIST), 2, $1, $3); }
-	| LBRACK index RBRACK			{ $$ = CN(getNodeType(INDEX_LIST), 1, $2); }
+	index_list '[' index ']'			{ $$ = CN(getNodeType(INDEX_LIST), 2, $1, $3); }
+	| '[' index ']'			{ $$ = CN(getNodeType(INDEX_LIST), 1, $2); }
 ;
 
 index :
