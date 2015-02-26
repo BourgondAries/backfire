@@ -28,11 +28,14 @@ extern int yylineno;
  */
  
 node_t* CN(nodetype_t type, int n_children, ...){
+	// outputStage = 2;
 	if( outputStage == 2 ) printf( "Hit rule \"%s\" on text '%s' at line %d\n", type.text , yytext, yylineno );
 	va_list child_list;
 	va_start(child_list, n_children);
+	// printf("\nNumber of children put in: %d\n", n_children);
 	node_t* to_return = node_init(type, NULL, NO_TYPE, default_e, n_children, child_list);
 	va_end(child_list);
+	// printf("ENDED CN\n");
 	return to_return;
 }
 
@@ -55,7 +58,9 @@ node_t* CNT(nodetype_t type, base_data_type_t base_type, int n_children, ...){
 }
 
 node_t* CNE(nodetype_t type, expression_type_t expression_type, int n_children, ...){
+	// printf("inside CNE\n");
 	if( outputStage == 2 ) printf( "Hit rule \"%s\" on text '%s' at line %d\n", type.text , yytext, yylineno );
+	// printf("after the fact\n");
 	va_list child_list;
 	va_start(child_list, n_children);
 	node_t* to_return = node_init(type, NULL, NO_TYPE, expression_type, n_children, child_list);
@@ -63,6 +68,21 @@ node_t* CNE(nodetype_t type, expression_type_t expression_type, int n_children, 
 	return to_return;
 }
 
+expression_type_t getExpressionType(et_number index)
+{
+	expression_type_t expr_type;
+	expr_type.index = index;
+	expr_type.text = NULL;
+	return expr_type;
+}
+
+nodetype_t getNodeType(nt_number index)
+{
+	nodetype_t nodetype;
+	nodetype.index = index;
+	nodetype.text = NULL;
+	return nodetype;
+}
 
 // Helper for setting the value of an Integer node
 static void SetInteger(node_t* node, char *string)
@@ -113,6 +133,8 @@ int yylex ( void );                 /* Defined in the generated scanner */
 %token  NEW
 %token ARRAY
 %token FOR TO
+%token CLASS_TOKEN HAS WITH THIS
+%token LPAREN RPAREN SEMICOLON COMMA
 
 /*
  * Operator precedences: 
@@ -124,16 +146,16 @@ int yylex ( void );                 /* Defined in the generated scanner */
  * production: " '-' expression %prec UMINUS "
  */
 %nonassoc ARRAY
-%nonassoc ']'
+%nonassoc RBRACK
 
 %left OR
 %left AND
 %left EQUAL NEQUAL
-%left GEQUAL LEQUAL '<' '>'
-%left '+' '-'
-%left '*' '/'
-%nonassoc UMINUS '!'
-%left '[' '.' 
+%left GEQUAL LEQUAL LESS GREATER
+%left PLUS MINUS
+%left MUL DIV
+%nonassoc UMINUS NOT
+%left LBRACK DOT
 
 /*
  * The grammar productions follow below. These are mostly a straightforward
