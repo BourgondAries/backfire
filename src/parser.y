@@ -175,12 +175,12 @@ program :
 ;
 
 function : 
-	type FUNC variable '(' parameter_list ')' START statement_list END		{ /* printf("ok"); */ $$ = CN(getNodeType(FUNCTION, "FUNCTION"), 4, $1, $3, $5, $8); } 
+	type FUNC variable '(' parameter_list ')' START statement_list END		{ $$ = CN(getNodeType(FUNCTION, "FUNCTION"), 4, $1, $3, $5, $8); } 
 ;
 
 function_list :
-	function_list function		{ /* printf("ok"); */ $$ = CN(getNodeType(FUNCTION_LIST, "FUNCTION_LIST"), 2, $1, $2); }
-	|							{ /* printf("ok"); */ $$ = CN(getNodeType(FUNCTION_LIST, "FUNCTION_LIST"), 0); }
+	function_list function		{ $$ = CN(getNodeType(FUNCTION_LIST, "FUNCTION_LIST"), 2, $1, $2); }
+	|							{ /*$$ = CN(getNodeType(FUNCTION_LIST, "FUNCTION_LIST"), 0);*/ }
 ;
 
 statement_list :
@@ -200,12 +200,12 @@ expression_list :
 
 parameter_list :
 	variable_list		{ $$ = CN(getNodeType(PARAMETER_LIST, "PARAMETER_LIST"), 1, $1); }
-	|					{ $$ = CN(getNodeType(PARAMETER_LIST, "PARAMETER_LIST"), 0); }
+	|					{ /*$$ = CN(getNodeType(PARAMETER_LIST, "PARAMETER_LIST"), 0);*/ }
 ;
 
 argument_list :
 	expression_list		{ $$ = CN(getNodeType(ARGUMENT_LIST, "ARGUMENT_LIST"), 1, $1); }
-	|					{ $$ = CN(getNodeType(ARGUMENT_LIST, "ARGUMENT_LIST"), 0); }
+	|					{ /*$$ = CN(getNodeType(ARGUMENT_LIST, "ARGUMENT_LIST"), 0);*/ }
 ;
 
 statement :
@@ -224,7 +224,7 @@ declaration_statement :
 ;
 
 assignment_statement :
-	lvalue ASSIGN expression		{ /* printf("just before assignment statement\n"); */ $$ = CN(getNodeType(ASSIGNMENT_STATEMENT, "ASSIGNMENT_STATEMENT"), 2, $1, $3); /* printf("after assignment statement\n"); */ }
+	lvalue ASSIGN expression		{ $$ = CN(getNodeType(ASSIGNMENT_STATEMENT, "ASSIGNMENT_STATEMENT"), 2, $1, $3); }
 ;
 
 if_statement :
@@ -273,7 +273,7 @@ call :
 ;
 
 lvalue :
-	variable			{ /* printf("lvalue, variable\n"); */ $$ = CN(getNodeType(VARIABLE, "VARIABLE"), 1, $1); }
+	variable			{ $$ = CN(getNodeType(VARIABLE, "VARIABLE"), 1, $1); }
 	| expression '[' expression ']'		{ $$ = CN(getNodeType(VARIABLE, "VARIABLE"), 2, $1, $3); }
 ;
 
