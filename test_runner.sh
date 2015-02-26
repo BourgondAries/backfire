@@ -47,7 +47,6 @@ Click to see difference between your output and the correct output. <br>
 
 XX
 
-
 echo "Testing... found errors in the following files:"
 
 for inputFile in `ls $vslProgramDir/*.vsl`; do

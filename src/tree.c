@@ -132,7 +132,6 @@ void node_print_entries ( FILE *output, node_t *root, int nesting )
         fprintf ( output, "%*c%p\n", nesting, ' ', root );
 }
 
-
 node_t * node_init ( nodetype_t type,
 		char* label,
 		base_data_type_t base_type,

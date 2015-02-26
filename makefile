@@ -27,6 +27,9 @@ all: bin/vslc
 test: all
 	./test_runner.sh
 
+upload:
+	tar -cf done.tar src/parser.y src/scanner.l src/tree.c
+	scp done.tar kevinrs@login.stud.ntnu.no:ps2code/done.tar
 #
 # The binary is built in 'obj' when all the object code is ready.
 # Make a copy of it in 'bin', to leave it around even after cleanup of
