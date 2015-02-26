@@ -273,7 +273,7 @@ call :
 ;
 
 lvalue :
-	variable			{ $$ = $1; /*$$ = CN(getNodeType(VARIABLE, "VARIABLE"), 1, $1);*/ }
+	variable			{ $$ = CN(getNodeType(VARIABLE, "EXPRESSION"), 1, $1); }
 	| expression '[' expression ']'		{ $$ = CN(getNodeType(VARIABLE, "VARIABLE"), 2, $1, $3); }
 ;
 
