@@ -145,8 +145,10 @@ node_t *node_init ( nodetype_t type,
     init->data_type.base_type = base_type;
     init->expression_type = expression_type;
     init->n_children = n_children;
-    init->children = (node_t **) malloc(sizeof(node_t *) * n_children);
-
+    if (n_children > 0)
+    	init->children = (node_t **) malloc(sizeof(node_t *) * n_children);
+    else 
+    	init->children = NULL;
     for ( int x = 0; x < n_children; ++x )        
     {
 		node_t *child = va_arg(child_list, node_t *);
@@ -157,7 +159,7 @@ node_t *node_init ( nodetype_t type,
 
 void node_finalize ( node_t *discard )
 {
-    free(discard->children);
+    // free(discard->children);
     free(discard);
 }
 
