@@ -9,9 +9,10 @@ extern int outputStage; // This variable is located in vslc.c
     #define RETURN(t) do {                                             \
         if ( outputStage == 1 )                                        \
             printf( "TOKEN ( %d,\t'%s' )\n", t, yytext );    \
-        return t;                                                      \
+        RETURN(t)                                                      \
     } while ( 0 )
-    void scanUntilLinefeed();
+
+void scanUntilLinefeed();
 
 
 extern node_t* CNL(nodetype_t type, char* label, int n_children, ...);
@@ -70,59 +71,59 @@ comment		"//"
 {whitespace}		{}
 {comment}			{ scanUntilLinefeed(); }
 
-"FUNC"				{ return FUNC; }
-"PRINT"				{ return PRINT; }
-"RETURN"			{ return RETURN; }
-"NEW"				{ return NEW; }
-"IF"				{ return IF; }
-"THEN"				{ return THEN; }
-"ELSE"				{ return ELSE; }
-"END"				{ return END; }
-"WHILE"				{ return WHILE; }
-"DO"				{ return DO; }
-"FOR"				{ return FOR; }
-"TO"				{ return TO; }
-"INT"				{ return INT; }
-"BOOL"				{ return BOOL; }
-"FLOAT"				{ return FLOAT; }
-"CLASS"				{ return CLASS_TOKEN; }
-"HAS"				{ return HAS; }
-"WITH"				{ return WITH; }
-"START"				{ return START; }
-"VOID"				{ return VOID; }
-"THIS"				{ return THIS; }
-"ARRAY"				{ return ARRAY; }
+"FUNC"				{ RETURN(FUNC); }
+"PRINT"				{ RETURN(PRINT) }
+"RETURN"			{ RETURN(RETURN) }
+"NEW"				{ RETURN(NEW) }
+"IF"				{ RETURN(IF) }
+"THEN"				{ RETURN(THEN) }
+"ELSE"				{ RETURN(ELSE) }
+"END"				{ RETURN(END) }
+"WHILE"				{ RETURN(WHILE) }
+"DO"				{ RETURN(DO) }
+"FOR"				{ RETURN(FOR) }
+"TO"				{ RETURN(TO) }
+"INT"				{ RETURN(INT) }
+"BOOL"				{ RETURN(BOOL) }
+"FLOAT"				{ RETURN(FLOAT) }
+"CLASS"				{ RETURN(CLASS_TOKEN) }
+"HAS"				{ RETURN(HAS) }
+"WITH"				{ RETURN(WITH) }
+"START"				{ RETURN(START) }
+"VOID"				{ RETURN(VOID) }
+"THIS"				{ RETURN(THIS) }
+"ARRAY"				{ RETURN(ARRAY) }
 
-":="				{ return ASSIGN; }
-"+"					{ return PLUS; }
-"-"					{ return MINUS; }
-"*"					{ return MUL; }
-"/"					{ return DIV; }
-">"					{ return GREATER; }
-"<"					{ return LESS; }
-"<="				{ return LEQUAL; }
-">="				{ return GEQUAL; }
-"=="				{ return EQUAL; }
-"!="				{ return NEQUAL; }
-"&&"				{ return AND; }
-"||"				{ return OR; }
-"!"					{ return NOT; }
-"."					{ return DOT; }
+":="				{ RETURN(ASSIGN) }
+"+"					{ RETURN(PLUS) }
+"-"					{ RETURN(MINUS) }
+"*"					{ RETURN(MUL) }
+"/"					{ RETURN(DIV) }
+">"					{ RETURN(GREATER) }
+"<"					{ RETURN(LESS) }
+"<="				{ RETURN(LEQUAL) }
+">="				{ RETURN(GEQUAL) }
+"=="				{ RETURN(EQUAL) }
+"!="				{ RETURN(NEQUAL) }
+"&&"				{ RETURN(AND) }
+"||"				{ RETURN(OR) }
+"!"					{ RETURN(NOT) }
+"."					{ RETURN(DOT) }
 
-{denary_integer}	{ yylval = (node_t *) malloc(sizeof(node_t)); SetInteger(yylval, yytext); return INT_CONST; }
-{denary_float}		{ yylval = (node_t *) malloc(sizeof(node_t)); SetFloat(yylval, yytext); return FLOAT_CONST; }
-{bool_true}			{ yylval = (node_t *) malloc(sizeof(node_t)); SetInteger(yylval, yytext); return TRUE_CONST; }
-{bool_false}		{ yylval = (node_t *) malloc(sizeof(node_t)); SetInteger(yylval, yytext); return FALSE_CONST; }
-{string_literal}	{ yylval = (node_t *) malloc(sizeof(node_t)); SetString(yylval, yytext); return STRING_CONST; }
+{denary_integer}	{ yylval = (node_t *) malloc(sizeof(node_t)); SetInteger(yylval, yytext); RETURN(INT_CONST) }
+{denary_float}		{ yylval = (node_t *) malloc(sizeof(node_t)); SetFloat(yylval, yytext); RETURN(FLOAT_CONST) }
+{bool_true}			{ yylval = (node_t *) malloc(sizeof(node_t)); SetInteger(yylval, yytext); RETURN(TRUE_CONST) }
+{bool_false}		{ yylval = (node_t *) malloc(sizeof(node_t)); SetInteger(yylval, yytext); RETURN(FALSE_CONST) }
+{string_literal}	{ yylval = (node_t *) malloc(sizeof(node_t)); SetString(yylval, yytext); RETURN(STRING_CONST) }
 
-")"					{ return RPAREN; }
-"("					{ return LPAREN; }
-","					{ return COMMA; }
-";"					{ return SEMICOLON; }
-"["					{ return LBRACK; }
-"]"					{ return RBRACK; }
+")"					{ RETURN(RPAREN) }
+"("					{ RETURN(LPAREN) }
+","					{ RETURN(COMMA) }
+";"					{ RETURN(SEMICOLON) }
+"["					{ RETURN(LBRACK) }
+"]"					{ RETURN(RBRACK) }
 
-{identifier}		 { yylval = (node_t *) malloc(sizeof(node_t)); SetString(yylval, yytext); return IDENTIFIER; }
+{identifier}		 { yylval = (node_t *) malloc(sizeof(node_t)); SetString(yylval, yytext); RETURN(IDENTIFIER) }
 %%
 
 void scanUntilLinefeed()
