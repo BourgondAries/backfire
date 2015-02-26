@@ -86,12 +86,8 @@ comment		"//"
 "INT"				{ RETURN(INT); }
 "BOOL"				{ RETURN(BOOL); }
 "FLOAT"				{ RETURN(FLOAT); }
-"CLASS"				{ RETURN(CLASS_TOKEN); }
-"HAS"				{ RETURN(HAS); }
-"WITH"				{ RETURN(WITH); }
 "START"				{ RETURN(START); }
 "VOID"				{ RETURN(VOID); }
-"THIS"				{ RETURN(THIS); }
 "ARRAY"				{ RETURN(ARRAY); }
 
 ":="				{ RETURN(ASSIGN); }
@@ -116,8 +112,8 @@ comment		"//"
 {bool_false}		{ yylval = (node_t *) malloc(sizeof(node_t)); SetInteger(yylval, yytext); RETURN(FALSE_CONST); }
 {string_literal}	{ yylval = (node_t *) malloc(sizeof(node_t)); SetString(yylval, yytext); RETURN(STRING_CONST); }
 
-")"					{ RETURN('('); }
-"("					{ RETURN(')'); }
+")"					{ RETURN(')'); }
+"("					{ RETURN('('); }
 ","					{ RETURN(','); }
 ";"					{ RETURN(';'); }
 "["					{ RETURN('['); }
