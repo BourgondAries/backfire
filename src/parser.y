@@ -261,7 +261,7 @@ expression :
 	| expression LEQUAL expression			{ $$ = CNE(getNodeType(EXPRESSION, "EXPRESSION"), getExpressionType(LEQUAL_E), 2, $1, $3); }
 	| expression AND expression			{ $$ = CNE(getNodeType(EXPRESSION, "EXPRESSION"), getExpressionType(AND_E), 2, $1, $3); }
 	| expression OR expression			{ $$ = CNE(getNodeType(EXPRESSION, "EXPRESSION"), getExpressionType(OR_E), 2, $1, $3); }
-	| '-' expression %prec UMINUS
+	| '-' expression %prec UMINUS		{ $$ = CNE(getNodeType(EXPRESSION, "EXPRESSION"), getExpressionType(UMINUS_E), 1, $1); }
 	| NEW type							{ $$ = CNE(getNodeType(EXPRESSION, "EXPRESSION"), getExpressionType(NEW_E), 1, $2); }
 	| '(' expression ')'			{ $$= CNE(getNodeType(EXPRESSION, "EXPRESSION"), getExpressionType(DEFAULT_E), 1, $2); }
 	| call								{ $$ = CNE(getNodeType(EXPRESSION, "EXPRESSION"), getExpressionType(FUNC_CALL_E), 1, $1); }

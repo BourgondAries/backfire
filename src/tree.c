@@ -155,7 +155,7 @@ node_t *node_init ( nodetype_t type,
         init->children[x] = child;
     }
 }
-
+// 55 correct, 37 tests => 111 tests
 
 void node_finalize ( node_t *discard )
 {
