@@ -98,7 +98,6 @@ static void SetFloat(node_t* node, char *string)
 	node->data_type.base_type= FLOAT_TYPE;
 }
 
-
 // Helper for setting the value of an string node
 static void SetString(node_t* node, char *string)
 {
@@ -171,7 +170,7 @@ int yylex ( void );                 /* Defined in the generated scanner */
 %%
 
 program : 
-	function_list		{ $$ = CN(getNodeType(PROGRAM, "PROGRAM"), 1, $1); root = $$; }
+	function_list		{ $$ = CN(getNodeType(PROGRAM, "PROGRAM"), 1, $1); root = $1; }
 ;
 
 function : 

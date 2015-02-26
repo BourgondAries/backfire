@@ -45,6 +45,7 @@ char* type_to_string(data_type_t type){
 // Print a node and all children recursively. 
 void node_print ( FILE *output, node_t *root, int nesting )
 {
+	printf("Node print is called, indeed: output ptr: '%p', root ptr: '%p'\n", output,  root);
     if ( root != NULL )
     {
         // Print 'nesting' number of ' ' before node text description
